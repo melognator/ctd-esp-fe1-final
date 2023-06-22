@@ -10,7 +10,6 @@ import './tarjeta-personaje.css';
  * @returns un JSX element 
  */
 const TarjetaPersonaje = () => {
-
     return <div className="tarjeta-personaje">
         <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Rick Sanchez"/>
         <div className="tarjeta-personaje-body">

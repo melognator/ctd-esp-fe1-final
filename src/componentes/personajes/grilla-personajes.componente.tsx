@@ -10,7 +10,6 @@ import TarjetaPersonaje from './tarjeta-personaje.componente';
  * @returns un JSX element 
  */
 const GrillaPersonajes = () => {
-
     return <div className="grilla-personajes">
        <TarjetaPersonaje />
        <TarjetaPersonaje />

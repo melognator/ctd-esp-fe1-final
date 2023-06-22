@@ -9,7 +9,6 @@ import './tarjeta-episodio.css';
  * @returns un JSX element 
  */
 const TarjetaEpisodio = () => {
-
     return <div className="tarjeta-episodio">
             <h4>Close Rick-counters of the Rick Kind</h4>
             <div>
