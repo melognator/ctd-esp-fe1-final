@@ -9,6 +9,8 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border: 1px solid #d0d0d0;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
 .tarjeta-personaje > div.tarjeta-personaje-body {

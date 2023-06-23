@@ -8,6 +8,7 @@ const mapPersonajes = (personajesToMap: any) => {
         imagen: personaje.image,
         planeta: personaje.location.name,
         episodios: personaje.episode,
+        genero: personaje.gender,
     }))
 }
 
@@ -40,6 +41,29 @@ export const getPersonajesByArray = async (array: Array<number>) => {
             data = mapPersonajes(response)
         } else {
             data = mapPersonajes([response])
+        }
+    }
+    return data
+}
+
+const mapEpisodes = (episodesToMap: any) => {
+    return episodesToMap.map((episodio: any) => ({
+        id: episodio.id,
+        titulo: episodio.name,
+        fecha: episodio.air_date,
+        episodio: episodio.episode,
+    }))
+}
+
+export const getEpisodiosByArray = async (array: Array<number>) => {
+    let data = []
+    if (array.length > 0) {
+        const response = await fetch(`https://rickandmortyapi.com/api/episode/${String(array)}`)
+            .then((response) => response.json())
+        if (response.length > 0) {
+            data = mapEpisodes(response)
+        } else {
+            data = mapEpisodes([response])
         }
     }
     return data

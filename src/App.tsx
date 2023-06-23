@@ -7,10 +7,12 @@ import PaginaDetalle from "./paginas/Detalle.pagina";
 import Encabezado from "./componentes/layout/encabezado.componente";
 import { fetchFavoritos, fetchPersonajesFavoritos } from './store/favoritosReducer';
 import { useAppDispatch, useAppSelector } from './store/hooks';
+import { fetchEpisodios } from './store/detalleReducer';
 
 function App() {
 
     const dispatch = useAppDispatch()
+    const detalle = useAppSelector(state => state.detalle)
     const favoritos = useAppSelector(state => state.favoritos)
     
     useEffect(() => {
@@ -20,6 +22,12 @@ function App() {
     useEffect(() => {
         dispatch(fetchPersonajesFavoritos())
     }, [favoritos.listado])
+
+    useEffect(() => {
+        if (detalle.personaje.id != -1) {
+            dispatch(fetchEpisodios())
+        }
+    }, [detalle.personaje])
 
     return (
         <div className="App">

@@ -5,8 +5,9 @@
 
 .detalle-header {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     justify-content: space-between;
 }
 
@@ -29,6 +30,23 @@
 
 .episodios-grilla {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-gap: 20px;
+}
+
+@media (min-width: 727px) {
+    .episodios-grilla {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .detalle-header {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+    }
+}
+
+@media (min-width: 1280px) {
+    .episodios-grilla {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
