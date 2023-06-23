@@ -1,11 +1,13 @@
 .tarjeta-personaje {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .tarjeta-personaje > img {
   width: 100%;
   height: auto;
+  aspect-ratio: 1/1;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border: 1px solid #d0d0d0;
