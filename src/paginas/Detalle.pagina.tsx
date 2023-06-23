@@ -23,8 +23,6 @@ const PaginaDetalle = () => {
     const favoritos = useAppSelector(state => state.favoritos)
     const dispatch = useAppDispatch()
 
-    console.log(episodios)
-
     if (personaje.id === -1) return <div className="container">
         <h3>Seleccione un personaje para ver sus datos</h3>
         <Link to={'/'}>Ver listado</Link>
