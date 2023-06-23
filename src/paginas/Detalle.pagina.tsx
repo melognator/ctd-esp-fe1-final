@@ -18,7 +18,7 @@ import { fetchToggleFavorito } from "../store/favoritosReducer";
  */
 const PaginaDetalle = () => {
 
-    const { personaje, episodios } = useAppSelector(state => state.detalle)
+    const { personaje, episodios, isLoading } = useAppSelector(state => state.detalle)
     const favoritos = useAppSelector(state => state.favoritos)
     const dispatch = useAppDispatch()
 
@@ -28,7 +28,7 @@ const PaginaDetalle = () => {
         <h3>{personaje.nombre}</h3>
         <div className={"detalle"}>
             <div className={"detalle-header"}>
-                <img src={personaje.imagen} alt={personaje.nombre}/>
+                <img src={personaje.imagen} alt={personaje.nombre} />
                 <div className={"detalle-header-texto"}>
                     <p>{personaje.nombre}</p>
                     <p>Planeta: {personaje.planeta}</p>
@@ -39,7 +39,9 @@ const PaginaDetalle = () => {
         </div>
         <h4>Lista de episodios donde apareció el personaje</h4>
         <div className={"episodios-grilla"}>
-            {episodios.map(episodio => <TarjetaEpisodio key={episodio.id} episodio={episodio} />)}
+            {isLoading ? <p>Cargando...</p> :
+                episodios.map(episodio => <TarjetaEpisodio key={episodio.id} episodio={episodio} />)
+            }
         </div>
     </div>
 }
