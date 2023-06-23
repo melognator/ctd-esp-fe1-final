@@ -26,7 +26,7 @@ const PaginaDetalle = () => {
                     <p>Planeta: Earth</p>
                     <p>Genero: Male</p>
                 </div>
-                <BotonFavorito esFavorito={false} />
+                <BotonFavorito onClick={() => ""} esFavorito={false} />
             </div>
         </div>
         <h4>Lista de episodios donde apareció el personaje</h4>

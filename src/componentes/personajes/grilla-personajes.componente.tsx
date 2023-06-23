@@ -1,6 +1,10 @@
 import './grilla-personajes.css';
 import TarjetaPersonaje from './tarjeta-personaje.componente';
 
+interface GrillaPersonajesProps {
+    personajes: Array<Personaje>;
+}
+
 /**
  * Grilla de personajes para la pagina de inicio
  * 
@@ -9,12 +13,12 @@ import TarjetaPersonaje from './tarjeta-personaje.componente';
  * 
  * @returns un JSX element 
  */
-const GrillaPersonajes = () => {
+const GrillaPersonajes = ({ personajes }: GrillaPersonajesProps) => {
     return <div className="grilla-personajes">
-       <TarjetaPersonaje />
-       <TarjetaPersonaje />
-       <TarjetaPersonaje />
+        { personajes.map((personaje) => (
+            <TarjetaPersonaje key={personaje.id} personaje={personaje} />
+        )) }
     </div>
 }
- 
+
 export default GrillaPersonajes;

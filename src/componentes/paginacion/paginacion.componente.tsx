@@ -1,3 +1,5 @@
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { fetchNextPersonajes, fetchPrevPersonajes } from '../../store/personajesReducer';
 import './paginacion.css';
 
 /**
@@ -10,9 +12,23 @@ import './paginacion.css';
  */
 const Paginacion = () => {
 
+    const { prev, next } = useAppSelector(state => state.personajes);
+    const dispatch = useAppDispatch()
+
+    const disabledPrev = prev === null;
+    const disabledNext = next === null;
+
+    const handlePrev = () => {
+        dispatch(fetchPrevPersonajes())
+    }
+
+    const handleNext = () => {
+        dispatch(fetchNextPersonajes())
+    }
+
     return <div className="paginacion">
-        <button disabled={true} className={"primary"}>Anterior</button>
-        <button disabled={false} className={"primary"}>Siguiente</button>
+        <button onClick={handlePrev} disabled={disabledPrev} className={"primary"}>Anterior</button>
+        <button onClick={handleNext} disabled={disabledNext} className={"primary"}>Siguiente</button>
     </div>
 }
 
