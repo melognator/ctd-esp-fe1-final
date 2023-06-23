@@ -3,6 +3,7 @@ import BotonFavorito from "../componentes/botones/boton-favorito.componente";
 import TarjetaEpisodio from "../componentes/episodios/tarjeta-episodio.componente";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { fetchToggleFavorito } from "../store/favoritosReducer";
+import { Link } from "react-router-dom";
 
 /**
  * Esta es la pagina de detalle. Aqui se puede mostrar la vista sobre el personaje seleccionado junto con la lista de episodios en los que aparece
@@ -24,6 +25,10 @@ const PaginaDetalle = () => {
 
     console.log(episodios)
 
+    if (personaje.id === -1) return <div className="container">
+        <h3>Seleccione un personaje para ver sus datos</h3>
+        <Link to={'/'}>Ver listado</Link>
+    </div>
     return <div className="container">
         <h3>{personaje.nombre}</h3>
         <div className={"detalle"}>
