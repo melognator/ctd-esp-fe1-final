@@ -4,6 +4,7 @@ export const getFavoritos = () => {
     if (favoritos) {
         return JSON.parse(favoritos)
     }
+    return []
 }
 
 export const addFavorito = (favorito: number) => {
